@@ -1,0 +1,85 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /yuexiang
+  #最大工作线程数，默认200, 4核8g内存，线程数经验值800
+  #操作系统做线程之间的切换调度是有系统开销的，所以不是越多越好。
+  tomcat:
+    max-threads: 1000
+    # 等待队列长度，默认100
+    accept-count: 1000
+    max-connections: 20000
+    # 最小工作空闲线程数，默认10, 适当增大一些，以便应对突然增长的访问量
+    min-spare-threads: 100
+spring:
+  application:
+    name: yuexiang
+  main:
+    allow-bean-definition-overriding: true
+  #http编码设置
+  http:
+    encoding:
+      enabled: true
+      force: true
+      charset: UTF-8
+
+---
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+---
+freemarkerSettings:
+  time_format: HH:mm:ss
+  defaultEncoding: UTF-8
+  datetime_format: yyyy-MM-dd HH:mm:ss
+  url_escaping_charset: UTF-8
+  template_update_delay: 0
+  auto_include: /ftl/vars.ftl
+  date_format: yyyy-MM-dd
+  auto_import: /ftl/tools.ftl as t
+  template_exception_handler: cn.yuexiang365.common.handler.ShortMessageTemplateExceptionHandler
+  locale: zh_CN
+  boolean_format: true,false
+  number_format: #
+freeMarkerExtendHandler:
+  methodRemoveRegex: Method
+  directiveRemoveRegex: cms|Directive
+  directivePrefix: _
+  directiveBasePackage: cn.yuexiang365.views.directive
+
+#---
+#spring:
+#  freemarker:
+#    # 设定FreeMarker keys.
+#    settings:
+#      classic_compatible: true
+#      default_encoding: UTF-8
+#      template_update_delay: 0
+#    # 模板编码。
+#    charset: UTF-8
+#    # 是否允许HttpServletRequest属性覆盖(隐藏)控制器生成的同名模型属性。
+#    allow-request-override: false
+#    # 是否启用模板缓存。
+#    cache: false
+#    # 设定所有request的属性在merge到模板的时候，是否要都添加到model中.
+#    expose-request-attributes: false
+#    # 是否允许HttpSession属性覆盖(隐藏)控制器生成的同名模型属性。
+#    allow-session-override: false
+#    # 是否在merge模板的时候，将HttpSession属性都添加到model中
+#    expose-session-attributes: false
+#    # 是否优先从文件系统加载template，以支持热加载，默认为true
+#    prefer-file-system-access: true
+#    # 设定模板的后缀.
+#    suffix: .html
+#    # 是否检查模板位置是否存在。
+#    check-template-location: true
+#    # 是否启用freemarker
+#    enabled: true
+#    # Content-Type value.
+#    content-type: text/html
+#    # 设定模板的加载路径，多个以逗号分隔，默认:
+#    template-loader-path: classpath:/templates/
+#    # 设定是否以springMacroRequestContext的形式暴露RequestContext给Spring’s macro library使用
+#    expose-spring-macro-helpers: true
