@@ -27,8 +27,11 @@ spring:
 spring:
   mvc:
     view:
-      prefix: /
+      prefix: /WEB-INF/
       suffix: .jsp
+  freemarker:
+    template-loader-path: /WEB-INF/
+
 ---
 freemarkerSettings:
   time_format: HH:mm:ss
