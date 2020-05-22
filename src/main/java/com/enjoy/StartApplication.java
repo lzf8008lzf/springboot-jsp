@@ -8,6 +8,15 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @SpringBootApplication
 public class StartApplication {
 
+//    @Bean
+//    public ViewResolver getJspViewResolver() {
+//        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+//        internalResourceViewResolver.setPrefix("/WEB-INF/");
+//        internalResourceViewResolver.setSuffix(".jsp");
+//        internalResourceViewResolver.setOrder(1);
+//        return internalResourceViewResolver;
+//    }
+
     @Bean
     public FreeMarkerViewResolver getFreeMarkerViewResolver() {
         FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();

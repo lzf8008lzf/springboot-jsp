@@ -16,7 +16,7 @@ public class HelloController {
 
     @RequestMapping("/free")
     public String index(ModelMap map) {
-        map.addAttribute("host","https://github.com/Inverseli/");
+        map.addAttribute("host","https://github.com/lzf8008lzf");
         return "index";
     }
 }

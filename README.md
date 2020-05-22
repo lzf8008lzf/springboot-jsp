@@ -10,3 +10,4 @@
 
 ## Run
 `mvn spring-boot:run`
+在IDEA下运行，hello报404错误，只有运行mvn spring-boot:run才能正常访问
